@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Bug Demo - Buggy Version</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="title">Welcome to the UI Bug Demo - Testing Responsive Design</h1>
+            <button class="action-button" id="openModal">Open Modal</button>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <label for="userInput">Enter your name:</label>
+                <input type="text" id="userInput" placeholder="Type your name here..." />
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal Dialog -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Modal Dialog</h2>
+            <p>This modal has a vertical centering issue.</p>
+            <button class="close-button">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

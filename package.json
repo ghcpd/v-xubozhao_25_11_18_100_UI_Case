@@ -1,0 +1,25 @@
+{
+  "name": "ui-bug-inspection",
+  "version": "1.0.0",
+  "description": "UI Bug Inspection and Testing System",
+  "scripts": {
+    "test": "node tests/run-tests.js",
+    "test:buggy": "node tests/run-tests.js buggy",
+    "test:fixed": "node tests/run-tests.js fixed",
+    "serve": "npx http-server -p 8080 -c-1",
+    "report": "node tests/generate-report.js"
+  },
+  "keywords": [
+    "ui",
+    "testing",
+    "playwright",
+    "accessibility"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "http-server": "^14.1.1"
+  }
+}
+

@@ -1,0 +1,21 @@
+{
+  "known_issues": [
+    {
+      "id": "UI-001",
+      "description": "Button overlaps with the title when viewport width < 400px"
+    },
+    {
+      "id": "UI-002",
+      "description": "Text input placeholder is unreadable in dark mode"
+    },
+    {
+      "id": "UI-003",
+      "description": "Modal dialog does not center vertically"
+    }
+  ],
+  "testing_goals": {
+    "layout_responsiveness": true,
+    "color_contrast": true,
+    "component_alignment": true
+  }
+}

@@ -1,0 +1,23 @@
+# .gitignore for UI Bug Testing Project
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Test Results
+test-results/
+playwright-report/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*

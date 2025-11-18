@@ -1,0 +1,176 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  color: #111;
+  background: #f5f5f5;
+}
+
+body {
+  min-height: 100vh;
+  background: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+main {
+  width: min(1100px, 100%);
+  display: grid;
+  gap: 24px;
+}
+
+header {
+  text-align: center;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(15, 20, 30, 0.05);
+  position: relative;
+  min-height: 260px;
+}
+
+.pane {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.title-bar .title {
+  font-size: 1.3rem;
+  line-height: 1.4;
+}
+
+.dark-mode {
+  background: #111;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.dark-mode input {
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1rem;
+  background: #222;
+  color: #fff;
+}
+
+.modal-trigger button {
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: 1px solid #999;
+  background: #fff;
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: relative;
+  margin-top: 12px;
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px dashed #999;
+  background: #fdfdfd;
+}
+
+.modal.active {
+  display: block;
+}
+
+.modal .close {
+  margin-top: 12px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: absolute;
+  left: 50%;
+  width: 80%;
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px dashed #999;
+  background: #fdfdfd;
+  transform: translateX(-50%);
+}
+.modal.active {
+  display: block;
+}
+  padding: 1px 8px;
+  margin-left: 4px;
+}
+
+.action {
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  background: #0078d4;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 400px) {
+  .title-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #problematic .title-bar {
+    position: relative;
+  }
+
+  #problematic .action {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+  }
+
+  #problematic .title {
+    margin-bottom: 32px;
+  }
+}
+
+#fixed .title-bar {
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#fixed .title-bar.fixed .action {
+  position: static;
+  align-self: flex-start;
+}
+
+#fixed .dark-mode.fixed input::placeholder {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+#problematic .dark-mode input::placeholder {
+  color: rgba(255, 255, 255, 0.05);
+}
+
+.problem-modal {
+  top: 24px;
+}
+
+.fixed-modal {
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

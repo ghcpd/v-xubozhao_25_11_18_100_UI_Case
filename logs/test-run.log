@@ -1,0 +1,10 @@
+Running Playwright UI regression tests...
+
+Running 5 tests using 1 worker
+
+[1A[2K[1/5] [chromium] ΓÇ║ tests\ui.spec.mjs:8:3 ΓÇ║ UI issue detection ΓÇ║ problematic button overlaps the title on small screens
+[1A[2K[2/5] [chromium] ΓÇ║ tests\ui.spec.mjs:19:3 ΓÇ║ UI issue detection ΓÇ║ fixed layout keeps the button below the title on small screens
+[1A[2K[3/5] [chromium] ΓÇ║ tests\ui.spec.mjs:30:3 ΓÇ║ UI issue detection ΓÇ║ problematic placeholder lacks contrast in dark mode
+[1A[2K[4/5] [chromium] ΓÇ║ tests\ui.spec.mjs:38:3 ΓÇ║ UI issue detection ΓÇ║ fixed placeholder color is readable in dark mode
+[1A[2K[5/5] [chromium] ΓÇ║ tests\ui.spec.mjs:46:3 ΓÇ║ UI issue detection ΓÇ║ problematic modal is stuck near the top while the fixed modal centers vertically
+[1A[2K  5 passed (2.3s)

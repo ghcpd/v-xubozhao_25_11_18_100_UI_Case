@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Bug Inspection</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>UI Bug Inspection</h1>
+        <p>Compare the problematic layout with the corrected implementation.</p>
+      </header>
+
+      <section id="problematic" class="card">
+        <h2>Problematic UI</h2>
+        <div class="pane">
+          <div class="title-bar">
+            <h3 class="title">Viewport Bug</h3>
+            <button class="action">Call to Action</button>
+          </div>
+          <div class="dark-mode">
+            <input type="text" placeholder="Hard-to-read placeholder" />
+          </div>
+          <div class="modal-trigger">
+            <button id="open-problematic-modal">Open Modal</button>
+          </div>
+        </div>
+        <div class="modal problem-modal" role="dialog" aria-modal="true">
+          <p>Problematic modal positioning</p>
+          <button class="close">Close</button>
+        </div>
+        <p class="notes">
+          Issues: button overlaps the title <span class="issue">UI-001</span>, placeholder lacks contrast
+          <span class="issue">UI-002</span>, modal is misaligned <span class="issue">UI-003</span>.
+        </p>
+      </section>
+
+      <section id="fixed" class="card">
+        <h2>Corrected UI</h2>
+        <div class="pane">
+          <div class="title-bar fixed">
+            <h3 class="title">Viewport Bug</h3>
+            <button class="action">Call to Action</button>
+          </div>
+          <div class="dark-mode fixed">
+            <input type="text" placeholder="Improved placeholder" />
+          </div>
+          <div class="modal-trigger">
+            <button id="open-fixed-modal">Open Modal</button>
+          </div>
+        </div>
+        <div class="modal fixed-modal" role="dialog" aria-modal="true">
+          <p>Centered modal dialog</p>
+          <button class="close">Close</button>
+        </div>
+        <p class="notes">
+          Fixes: button respects the title (wrap/flex) with <span class="issue">UI-001</span>, placeholder contrast
+          improved <span class="issue">UI-002</span>, modal centered vertically with <span class="issue">UI-003</span>.
+        </p>
+      </section>
+    </main>
+    <script src="scripts.js" defer></script>
+  </body>
+</html>

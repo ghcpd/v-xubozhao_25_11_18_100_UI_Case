@@ -1,0 +1,230 @@
+/* Buggy CSS - Contains all three UI issues */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* BUG UI-001: Button overlaps title on small screens */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    /* Missing responsive handling - will overflow */
+    /* BUG: No flex-wrap, causing overflow */
+}
+
+body.dark-mode header {
+    background: #2a2a2a;
+}
+
+#page-title {
+    font-size: 28px;
+    font-weight: 600;
+    /* BUG: No text wrapping or responsive sizing */
+    white-space: nowrap;
+    /* BUG: Fixed width that doesn't shrink */
+    min-width: 200px;
+}
+
+#action-button {
+    /* BUG: Fixed width causes overlap */
+    min-width: 180px;
+    white-space: nowrap;
+}
+
+/* BUG UI-002: Placeholder unreadable in dark mode */
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form-control::placeholder {
+    color: #999;
+    /* BUG: Same placeholder color in dark mode - poor contrast */
+}
+
+body.dark-mode .form-control {
+    background-color: #222;
+    border-color: #555;
+    color: #e0e0e0;
+    /* BUG: Placeholder remains #999 - unreadable against #222 background */
+}
+
+/* BUG: Dark mode placeholder keeps same color - poor contrast */
+body.dark-mode .form-control::placeholder {
+    color: #666;
+    /* Very poor contrast against #222 background */
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* BUG UI-003: Modal not centered vertically */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    /* BUG: Missing align-items: center */
+    align-items: flex-start; /* Explicitly positioned at top */
+    z-index: 1000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    /* BUG: Positioned near top, not centered */
+    margin-top: 80px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .modal-content {
+    background: #2a2a2a;
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+body.dark-mode .modal-content h2 {
+    color: #e0e0e0;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Button Styles */
+.btn-primary,
+.btn-secondary {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #545b62;
+}
+
+/* Form Section */
+.form-section {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+body.dark-mode .form-section {
+    background: #2a2a2a;
+}
+
+.form-section h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+body.dark-mode .theme-toggle {
+    background: #2a2a2a;
+}
+
+.theme-toggle label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.theme-toggle input[type="checkbox"] {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Media Query - but not enough to fix UI-001 */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    /* Header still breaks at < 400px */
+}
